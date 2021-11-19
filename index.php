@@ -1,5 +1,5 @@
 <?php
-include_once('conexao.php');
+include_once('conection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +12,16 @@ include_once('conexao.php');
 <body>
     <h4>Listar usuários</h4>
     <table>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Ações</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
     </table>
+    <script src="js/custom.js"></script>
 </body>
 </html>
