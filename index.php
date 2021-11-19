@@ -41,19 +41,20 @@ include_once('conection.php');
                 </div>
                 <div class="modal-body">
                 <form id="add-user-form">
+                    <span id="msgAlert"></span>
                     <div class="mb-3">
                         <label for="nome" class="col-form-label">Nome:</label>
-                        <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite nome completo" required>
+                        <input type="text" name="nome" class="form-control" value="teste" id="nome" placeholder="Digite nome completo" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="col-form-label">E-mail:</label>
-                        <input type="text" name="email" class="form-control" id="email" placeholder="Digite e-mail" required>
+                        <input type="email" name="email" class="form-control" value="teste@gmail.com" id="email" placeholder="Digite e-mail" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <input type="submit" class="btn btn-outline-success btn-sm" id="add-user-btn" value="Salvar" />
                     </div>
                 </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <input type="submit" class="btn btn-outline-success btn-sm" id="add-user-btn" value="Salvar" />
                 </div>
             </div>
         </div>
