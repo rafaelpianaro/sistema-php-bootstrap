@@ -40,7 +40,7 @@ include_once('conection.php');
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <form>
+                <form id="add-user-form">
                     <div class="mb-3">
                         <label for="nome" class="col-form-label">Nome:</label>
                         <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite nome completo" required>
