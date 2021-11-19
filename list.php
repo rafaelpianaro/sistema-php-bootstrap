@@ -1,7 +1,8 @@
 <?php
 include_once('conection.php');
 
-$query_users = "select id, nome, email from usuarios order by id asc limit 10";
+// $query_users = "select id, nome, email from usuarios order by id asc limit 10";
+$query_users = "SELECT id, nome, email FROM usuarios LIMIT 10";
 $result_users = $conn->prepare($query_users);
 $result_users->execute();
 
@@ -16,5 +17,5 @@ while($row_user = $result_users->fetch(PDO::FETCH_ASSOC)){
         <td>$email</td>
         <td>Ações</td>
     </tr>";
-    echo $data;
 }
+echo $data;
