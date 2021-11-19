@@ -60,7 +60,7 @@ for($paginate_next = $paginate + 1; $paginate_next <= $paginate + $max_links; $p
         $data .= "<li class='page-item'><a class='page-link' href='#' onclick='listUser($paginate_next)'>$paginate_next</a></li>";
     }
 }
-$data .= "<li class='page-item'><a class='page-link' href='#' onclick='listUser($qtd_paginate)'>Última</a></li>";
+$data .= "<li class='page-item'><a class='page-link' href='#' onclick='listUser($qtd_paginate)'>Última $qtd_paginate</a></li>";
 // other way
 // $data .= '<li class="page-item"><a class="page-link" href="'.$qtd_paginate.'">Última</a></li>';
 $data .= '</ul></nav>';

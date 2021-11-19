@@ -13,9 +13,15 @@ include_once('conection.php');
 <body>
     <div class="container">
         <div class="row mt-4">
-            <div class="col-lg-12">
+            <div class="col-lg-12 d-flex justify-content-between aligns-items-center">
                 <div>
                     <h4>Listar usuários</h4>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                    data-bs-target="#addUser">
+                        Cadastrar
+                    </button>
                 </div>
             </div>
         </div>
@@ -23,6 +29,32 @@ include_once('conection.php');
         <div class="row">
             <div class="col-lg-12">
                 <span class="list-users"></span>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserLabel">Cadastrar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nome" class="col-form-label">Nome:</label>
+                        <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite nome completo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="col-form-label">E-mail:</label>
+                        <input type="text" name="email" class="form-control" id="email" placeholder="Digite e-mail" required>
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
