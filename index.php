@@ -18,7 +18,7 @@ include_once('conection.php');
                     <h4>Listar usuários</h4>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-success btn-sm  " data-bs-toggle="modal" 
                     data-bs-target="#addUser">
                         Cadastrar
                     </button>
@@ -52,8 +52,8 @@ include_once('conection.php');
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <input type="submit" class="btn btn-outline-success btn-sm" id="add-user-btn" value="Salvar" />
                 </div>
             </div>
         </div>
