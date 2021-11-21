@@ -45,11 +45,11 @@ include_once('conection.php');
                     <span id="msgAlertError"></span>
                     <div class="mb-3">
                         <label for="nome" class="col-form-label">Nome:</label>
-                        <input type="text" name="nome" class="form-control" value="teste" id="nome" placeholder="Digite nome completo">
+                        <input type="text" name="nome" class="form-control" value="" id="nome" placeholder="Digite nome completo">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="col-form-label">E-mail:</label>
-                        <input type="email" name="email" class="form-control" value="teste@gmail.com" id="email" placeholder="Digite e-mail">
+                        <input type="email" name="email" class="form-control" value="" id="email" placeholder="Digite e-mail">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>

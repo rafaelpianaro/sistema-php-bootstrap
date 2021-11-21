@@ -27,7 +27,7 @@ addForm.addEventListener("submit", async (e) => {
     // console.log('response', response)
     if(response['erro']){
         msgAlertError.innerHTML = response['msg']
-        msgAlert.innerHTML = response['msg']
+        // msgAlert.innerHTML = response['msg']
     }else{
         msgAlert.innerHTML = response['msg']
         addForm.reset()
