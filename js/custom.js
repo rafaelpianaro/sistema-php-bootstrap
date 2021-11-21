@@ -34,5 +34,6 @@ addForm.addEventListener("submit", async (e) => {
         modal.hide()
         listUser(1)
     }
+    setTimeout(function(){ msgAlert.innerHTML = ""; }, 3000);
     document.getElementById("add-user-btn").value = "Salvar"
 })
