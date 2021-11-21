@@ -26,6 +26,7 @@ include_once('conection.php');
             </div>
         </div>
         <hr>
+        <span id="msgAlert"></span>
         <div class="row">
             <div class="col-lg-12">
                 <span class="list-users"></span>
@@ -41,14 +42,14 @@ include_once('conection.php');
                 </div>
                 <div class="modal-body">
                 <form id="add-user-form">
-                    <span id="msgAlert"></span>
+                    <span id="msgAlertError"></span>
                     <div class="mb-3">
                         <label for="nome" class="col-form-label">Nome:</label>
-                        <input type="text" name="nome" class="form-control" value="teste" id="nome" placeholder="Digite nome completo" required>
+                        <input type="text" name="nome" class="form-control" value="teste" id="nome" placeholder="Digite nome completo">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="col-form-label">E-mail:</label>
-                        <input type="email" name="email" class="form-control" value="teste@gmail.com" id="email" placeholder="Digite e-mail" required>
+                        <input type="email" name="email" class="form-control" value="teste@gmail.com" id="email" placeholder="Digite e-mail">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
