@@ -34,6 +34,7 @@ include_once('conection.php');
             </div>
         </div>
     </div>
+    <!-- MODAL -->
     <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
