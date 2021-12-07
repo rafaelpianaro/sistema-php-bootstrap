@@ -34,7 +34,7 @@ include_once('conection.php');
             </div>
         </div>
     </div>
-    <!-- MODAL -->
+    <!-- MODAL SAVE -->
     <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -58,6 +58,28 @@ include_once('conection.php');
                         <input type="submit" class="btn btn-outline-success" id="add-user-btn" value="Salvar" />
                     </div>
                 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL VIEW -->
+    <div class="modal fade" id="viewUser" tabindex="-1" aria-labelledby="viewUser" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewUserLabel">Detalhes do usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertErrorView"></span>
+                    <dl class="row">
+                        <dt class="col-sm-3">ID</dt>
+                        <dd class="col-sm-9"><span id="idUser"></span></dd>
+                        <dt class="col-sm-3">Nome</dt>
+                        <dd class="col-sm-9"><span id="nameUser"></span></dd>
+                        <dt class="col-sm-3">E-mail</dt>
+                        <dd class="col-sm-9"><span id="mailUser"></span></dd>
+                    </dl>
                 </div>
             </div>
         </div>
