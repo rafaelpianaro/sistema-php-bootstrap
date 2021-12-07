@@ -37,3 +37,20 @@ addForm.addEventListener("submit", async (e) => {
     setTimeout(function(){ msgAlert.innerHTML = ""; }, 3000);
     document.getElementById("add-user-btn").value = "Salvar"
 })
+
+async function viewUser(id){
+    // console.log('clicou', id)
+    const data = await fetch('viewUser.php?id='+id)
+    const response = await data.json()
+    // console.log('response', response)
+    if(response['erro'])
+        msgAlert.innerHTML = response['msg']
+    else{
+        const modal = new bootstrap.Modal(document.getElementById("viewUser"))
+        modal.show()
+        document.getElementById('idUser').innerHTML = response['dados'].id
+        document.getElementById('nameUser').innerHTML = response['dados'].nome
+        document.getElementById('mailUser').innerHTML = response['dados'].email
+    }
+    
+}
