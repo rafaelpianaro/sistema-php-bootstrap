@@ -4,7 +4,7 @@ $paginate = filter_input(INPUT_GET, "paginate", FILTER_SANITIZE_NUMBER_INT);
 
 if(!empty($paginate)){
 
-    // calc pagination
+    // calc start pagination
     $qtd_result_page = 3;
     $start = ($paginate * $qtd_result_page) - $qtd_result_page;
 
@@ -32,7 +32,9 @@ while($row_user = $result_users->fetch(PDO::FETCH_ASSOC)){
         <td>$id</td>
         <td>$nome</td>
         <td>$email</td>
-        <td>Ações</td>
+        <td>
+            <button id='$id' class='btn btn-outline-primary btn-sm' onClick='viewUser($id)'>Visualizar</button>
+        </td>
     </tr>";
 }
 $data .= "</tbody>
@@ -44,7 +46,6 @@ $resulte_paginate = $conn->prepare($query_paginate);
 $resulte_paginate->execute();
 $row_paginate = $resulte_paginate->fetch(PDO::FETCH_ASSOC);
 
-// pagination qtd
 $qtd_paginate = ceil($row_paginate['num_result'] / $qtd_result_page);
 $max_links = 2;
 $data .= '<nav aria-label="Page navigation example"><ul class="pagination pagination-sm justify-content-center">';
@@ -60,7 +61,7 @@ for($paginate_next = $paginate + 1; $paginate_next <= $paginate + $max_links; $p
         $data .= "<li class='page-item'><a class='page-link' href='#' onclick='listUser($paginate_next)'>$paginate_next</a></li>";
     }
 }
-$data .= "<li class='page-item'><a class='page-link' href='#' onclick='listUser($qtd_paginate)'>Última $qtd_paginate</a></li>";
+$data .= "<li class='page-item'><a class='page-link' href='#' onclick='listUser($qtd_paginate)'>Última</a></li>";
 // other way
 // $data .= '<li class="page-item"><a class="page-link" href="'.$qtd_paginate.'">Última</a></li>';
 $data .= '</ul></nav>';
