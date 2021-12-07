@@ -53,8 +53,8 @@ include_once('conection.php');
                         <input type="email" name="email" class="form-control" value="" id="email" placeholder="Digite e-mail">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <input type="submit" class="btn btn-outline-success btn-sm" id="add-user-btn" value="Salvar" />
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Fechar</button>
+                        <input type="submit" class="btn btn-outline-success" id="add-user-btn" value="Salvar" />
                     </div>
                 </form>
                 </div>
