@@ -1,5 +1,6 @@
 const tbody = document.querySelector(".list-users")
 const addForm = document.getElementById("add-user-form")
+const editForm = document.getElementById("edit-user-form")
 const msgAlert = document.getElementById("msgAlert")
 const msgAlertError = document.getElementById("msgAlertError")
 const modal = new bootstrap.Modal(document.getElementById("addUser"))
@@ -46,11 +47,38 @@ async function viewUser(id){
     if(response['erro'])
         msgAlert.innerHTML = response['msg']
     else{
-        const modal = new bootstrap.Modal(document.getElementById("viewUser"))
-        modal.show()
+        const viewModal = new bootstrap.Modal(document.getElementById("viewUser"))
+        viewModal.show()
         document.getElementById('idUser').innerHTML = response['dados'].id
         document.getElementById('nameUser').innerHTML = response['dados'].nome
         document.getElementById('mailUser').innerHTML = response['dados'].email
     }
-    
 }
+
+async function editUser(id){
+    const data = await fetch('viewUser.php?id='+id)
+    const response = await data.json()
+    // console.log('response', response)
+    if(response['erro'])
+        msgAlert.innerHTML = response['msg']
+    else{
+        const editModal = new bootstrap.Modal(document.getElementById("editUser"))
+        editModal.show()
+        document.getElementById('edit_id').value = response['dados'].id
+        document.getElementById('edit_nome').value = response['dados'].nome
+        document.getElementById('edit_email').value = response['dados'].email
+    }   
+}
+
+editForm.addEventListener('submit',async(e) =>{
+    e.preventDefault()
+    const dataForm = new FormData(editForm)
+    // show the values
+    // for(var data of dataForm.entries()){
+    //     console.log(data[0] + " - " + data[1])
+    // }
+    const data = await fetch("edit.php",{
+        method: "POST",
+        body: dataForm
+    })
+})
