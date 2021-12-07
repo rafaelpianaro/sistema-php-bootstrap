@@ -3,6 +3,7 @@ const addForm = document.getElementById("add-user-form")
 const editForm = document.getElementById("edit-user-form")
 const msgAlert = document.getElementById("msgAlert")
 const msgAlertError = document.getElementById("msgAlertError")
+const msgAlertErrorEdit = document.getElementById("msgAlertErrorEdit")
 const modal = new bootstrap.Modal(document.getElementById("addUser"))
 
 const listUser = async (paginate) => {
@@ -56,6 +57,7 @@ async function viewUser(id){
 }
 
 async function editUser(id){
+    msgAlertErrorEdit.innerHTML = ""
     const data = await fetch('viewUser.php?id='+id)
     const response = await data.json()
     // console.log('response', response)
@@ -72,6 +74,8 @@ async function editUser(id){
 
 editForm.addEventListener('submit',async(e) =>{
     e.preventDefault()
+    // updating
+    document.getElementById("edit-user-btn").value = "Atualizando..."
     const dataForm = new FormData(editForm)
     // show the values
     // for(var data of dataForm.entries()){
@@ -81,4 +85,13 @@ editForm.addEventListener('submit',async(e) =>{
         method: "POST",
         body: dataForm
     })
+    const response = await data.json()
+    // console.log('response', response)
+    if(response['erro'])
+        msgAlertErrorEdit.innerHTML = response['msg']
+    else{
+        msgAlertErrorEdit.innerHTML = response['msg']
+        listUser(1)
+    }
+    document.getElementById("edit-user-btn").value = "Atualizar"
 })
