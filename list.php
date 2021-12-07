@@ -35,6 +35,7 @@ while($row_user = $result_users->fetch(PDO::FETCH_ASSOC)){
         <td>
             <button id='$id' class='btn btn-outline-primary btn-sm' onClick='viewUser($id)'>Visualizar</button>
             <button id='$id' class='btn btn-outline-warning btn-sm' onClick='editUser($id)'>Editar</button>
+            <button id='$id' class='btn btn-outline-danger btn-sm' onClick='deleteUser($id)'>Deletar</button>
         </td>
     </tr>";
 }
