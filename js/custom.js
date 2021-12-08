@@ -1,6 +1,8 @@
 const tbody = document.querySelector(".list-users")
 const addForm = document.getElementById("add-user-form")
 const editForm = document.getElementById("edit-user-form")
+const deleteModal = document.getElementById("deleteModal")
+const modalBootstrap = document.querySelector('.modal-backdrop')
 const msgAlert = document.getElementById("msgAlert")
 const msgAlertError = document.getElementById("msgAlertError")
 const msgAlertErrorEdit = document.getElementById("msgAlertErrorEdit")
@@ -97,15 +99,25 @@ editForm.addEventListener('submit',async(e) =>{
 })
 
 async function deleteUser(id){
-    var msgConfirm = confirm("Atenção: realmente deseja deletar?")
-    if(msgConfirm == true){
-        const data = await fetch("delete.php?id="+id)
-        const response = await data.json()
-        if(response['erro'])
-            msgAlert.innerHTML = response['msg']
-        else{
-            msgAlert.innerHTML = response['msg']
-            listUser(1)
-        }
+    const data = await fetch('viewUser.php?id='+id)
+    const response = await data.json()
+    document.getElementById('nomeDelete').innerHTML = response['dados'].nome
+    document.getElementById('mailDelete').innerHTML = response['dados'].email
+    document.getElementById('confirmDelete').setAttribute('onclick','confirmDeleteUser('+id+')');
+}
+
+async function confirmDeleteUser(id){
+    const data = await fetch("delete.php?id="+id)
+    const response = await data.json()
+    if(response['erro'])
+        msgAlert.innerHTML = response['msg']
+    else{
+        msgAlert.innerHTML = response['msg']
+        setTimeout(function(){ msgAlert.innerHTML = ""; }, 3000);
+        const modalBootstrap = document.querySelector('.modal-backdrop')
+        modalBootstrap.classList.remove('show')
+        const deleteModal = document.getElementById("deleteModal")
+        deleteModal.classList.remove('show')
+        listUser(1)
     }
 }
