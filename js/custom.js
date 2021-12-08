@@ -95,3 +95,17 @@ editForm.addEventListener('submit',async(e) =>{
     }
     document.getElementById("edit-user-btn").value = "Atualizar"
 })
+
+async function deleteUser(id){
+    var msgConfirm = confirm("Atenção: realmente deseja deletar?")
+    if(msgConfirm == true){
+        const data = await fetch("delete.php?id="+id)
+        const response = await data.json()
+        if(response['erro'])
+            msgAlert.innerHTML = response['msg']
+        else{
+            msgAlert.innerHTML = response['msg']
+            listUser(1)
+        }
+    }
+}
